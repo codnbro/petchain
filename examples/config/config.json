@@ -1,0 +1,10 @@
+ {
+    "issuer_addr": "localhost:1121",
+    "verifier_addr": "localhost:1122",
+    "registrar_addr": "localhost:9000",
+    "registrar_gateway_addr": "localhost:9100",
+    "resolver_addr": "localhost:9001",
+    "resolver_gateway_addr": "localhost:9101",
+    "did_context": ["https://www.w3.org/ns/did/v1"],
+    "verification_methods": ["Ed25519VerificationKey2018", "RsaVerificationKey2018"]
+}

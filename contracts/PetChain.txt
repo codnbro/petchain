@@ -1,0 +1,86 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.21;
+
+contract PetChain {
+    // 반려동물
+    struct Pet {
+        string name;       // 이름
+        uint age;          // 나이
+        string species;    // 종류
+        string petId;      // 반려동물 고유 ID
+    }
+
+    // 반려동물 등록증
+    struct PetCertificate {
+        string certificateId;   // 증서 ID
+        string petId;           // 반려동물 고유 ID
+        uint256 registrationDate; // 등록 날짜
+        bool isValid;           // 증서의 유효성
+    }
+
+    // 발행자
+    address public authority; // 발행자(관리 기관)의 지갑 주소
+    mapping(string => Pet) public pets; // 반려동물 고유 ID에 따라 반려동물 정보 매핑
+    mapping(string => PetCertificate) public certificates; // 반려동물 증서 ID에 따라 등록증 매핑
+
+    constructor() {
+        authority = msg.sender; // 계약을 배포한 주소를 관리 기관 주소로 설정
+    }
+
+    // 주요 함수 호출을 관리 기관으로 제한
+    modifier onlyAuthority() {
+        require(msg.sender == authority, "Unauthorized: caller is not the authority");
+        _;
+    }
+
+    // 새 반려동물 등록 함수
+    function registerPet(string memory _petId, string memory _name, uint _age, string memory _species) public onlyAuthority {
+        Pet memory newPet = Pet({
+            name: _name,
+            age: _age,
+            species: _species,
+            petId: _petId
+        });
+        pets[_petId] = newPet;
+    }
+
+    // 새 반려동물 등록증 발급 함수
+    function issueCertificate(string memory _petId, string memory _certificateId, uint256 _registrationDate) public onlyAuthority {
+        require(pets[_petId].age != 0, "Pet not registered");
+
+        PetCertificate memory newCertificate = PetCertificate({
+            certificateId: _certificateId,
+            petId: _petId,
+            registrationDate: _registrationDate,
+            isValid: true
+        });
+        certificates[_certificateId] = newCertificate;
+    }
+
+    // 반려동물 등록증 유효성 검증 함수
+    function verifyCertificate(string memory _certificateId) public view returns (bool) {
+        return certificates[_certificateId].isValid && pets[certificates[_certificateId].petId].age != 0;
+    }
+
+    // 사용된 반려동물 등록증을 무효화하는 함수
+    function invalidateCertificate(string memory _certificateId) public onlyAuthority {
+        require(certificates[_certificateId].isValid, "Certificate already invalidated");
+        certificates[_certificateId].isValid = false;
+    }
+
+    // 반려동물 등록증을 사용하는 함수
+    function useCertificate(string memory _certificateId) public returns (string memory) {
+        require(certificates[_certificateId].isValid, "Invalid certificate");
+        // 증서 검증
+        bool isValid = verifyCertificate(_certificateId);
+        require(isValid, "Verification failed: invalid certificate");
+        
+        // 증서 사용 로직, 예를 들어 서비스 제공 등
+        // 예시: "Received service"
+        
+        // 증서 사용 후 무효화
+        invalidateCertificate(_certificateId);
+        
+        return "Certificate used successfully, service provided.";
+    }
+}

@@ -1,0 +1,52 @@
+ganache v7.9.2 (@ganache/cli: 0.10.2, @ganache/core: 0.10.2)
+Starting RPC server
+
+Available Accounts
+==================
+(0) 0x8F321065A3055bD456093d2dC1DE7A2A61d037d5 (1000 ETH)
+(1) 0x1cB9A6be39ba5cf398C8bC079c06476ae70D8244 (1000 ETH)
+(2) 0x2d3755ef2D8bBdADBAD976DC40de8eB1EF4797d4 (1000 ETH)
+(3) 0x71c706320d9C2DF95f3b9e7eb3BCe977A512433d (1000 ETH)
+(4) 0xfcE9E7CD78D46Ff32AC76D63AaBd0cd6F19C3062 (1000 ETH)
+(5) 0xfA172fDaBc25D5D153081795c56ba64f3530E7E7 (1000 ETH)
+(6) 0x1BF1a5967E721BD169bC011Ecb45a3D1a5Bb567f (1000 ETH)
+(7) 0xAFC6b4bcDe025bFfB618d81FA99714A5D42f2543 (1000 ETH)
+(8) 0xD92ab0E15f7D09472f04b96A2FC93737C15e6DCb (1000 ETH)
+(9) 0xf266281c14a63eEb016502A82603799B883FAa73 (1000 ETH)
+
+Private Keys
+==================
+(0) 0xa6a81197c5bb6999a7c0403e747577b040a23a7386e9dc878c2fe131fc00d9ef
+(1) 0x335476f59e93567c57fe9e605a4c17994e272e6a7d970465617c7e64c2f48be1
+(2) 0x2b87547c87a3d6cc7efc6ba8245797ae37f44dad2e22a588d0dec6667b522e10
+(3) 0x2680ccdf6058a24a54bba588f18367993ae2a373d4c3dba2aa0b37ab5e7d8286
+(4) 0x98567c175926dec3c651ec4458a25385c3c05adb5e8ef33cf0d044979aa3e71a
+(5) 0xeb4c161d5cb0963367c60f5da97b7f74fa0bed9d2a2302b0fa06f6bf536d90c4
+(6) 0x651275cbd9da5808ce1b44e293459d88264268f64831f15bb96fa201041f422e
+(7) 0xecda25e6cd26b9177a2ce5d9b7995a1fbc8cbe20b985309ea3798716ab7de4b6
+(8) 0x486e04b26236e52aa90836e98c1d714075be612276e75c269ab061698e171cda
+(9) 0x483f7a31d97ceecdd9d0e4e0d8bbba523b3cf3120f23edb5b0bb4f1cc2c84ed8
+
+HD Wallet
+==================
+Mnemonic:      comic shy runway digital fringe runway boss spatial distance harvest crime height
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Default Gas Price
+==================
+2000000000
+
+BlockGas Limit
+==================
+30000000
+
+Call Gas Limit
+==================
+50000000
+
+Chain
+==================
+Hardfork: shanghai
+Id:       1337
+
+RPC Listening on 127.0.0.1:8545
