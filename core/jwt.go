@@ -20,7 +20,7 @@ func VerifyJwt(token string, pbKey *ecdsa.PublicKey) (bool, error) {
 	return true, nil
 }
 
-// Parse VC JWT Claim and Verify VC JWT.
+// ParseAndVerifyJwtForVC Parse VC JWT Claim and Verify VC JWT.
 //
 // claims의 Issuer에 발급자의 DID가 있다.
 // DID를 Resolve해서 DID Document를 받아온다.
@@ -69,7 +69,6 @@ func ParseAndVerifyJwtForVC(tokenString string) (bool, *JwtClaims, error) {
 
 	return false, nil, err
 }
-
 
 func ParseAndVerifyJwtForVP(tokenString string) (bool, *JwtClaimsForVP, error) {
 	//개별적으로 내부 VC들을 다시 다 검증해야 한다.
@@ -125,13 +124,12 @@ func ParseAndVerifyJwtForVP(tokenString string) (bool, *JwtClaimsForVP, error) {
 				fmt.Printf("	==> VC[%d] is Verified.\n", idx)
 			}
 		} else {
-			return false, nil, fmt.Errorf("VC is not exist.")
+			return false, nil, fmt.Errorf("VC is not exist")
 		}
 
 	} else {
-		return false, nil, fmt.Errorf("VP is not valid.")
+		return false, nil, fmt.Errorf("VP is not valid")
 	}
 
 	return true, claims, nil
 }
-

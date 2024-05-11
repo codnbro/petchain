@@ -1,12 +1,12 @@
-// go\did\ex2\main.go
+// examples/did/ex2/main.go
 package main
 
 import (
 	"errors"
 	"fmt"
-	core "go/core"
-	"go/util"
 	"log"
+	core "petchain/core"
+	"petchain/util"
 )
 
 // DID를 만들어주는 함수(메서드와 퍼블릭 키를 받는다.)

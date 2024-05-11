@@ -1,4 +1,4 @@
-// go\core\vp.go
+// examples/vp/core/vp.go
 package core
 
 import (
@@ -10,6 +10,7 @@ import (
 
 	"github.com/getlantern/deepcopy"
 	"github.com/golang-jwt/jwt"
+	"github.com/google/uuid"
 )
 
 type VP struct {

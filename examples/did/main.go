@@ -1,4 +1,4 @@
-// go\did\main.go
+// examples/did/main.go
 package main
 
 import (
@@ -13,3 +13,7 @@ func main() {
 	fmt.Printf("DID: [%s]", did.String())
 
 }
+
+/*
+DID: [did:test:72gRWx4C1Egqz9xvUBCYVdgh7uLc5kmGbjXFhiknNCTW]
+*/

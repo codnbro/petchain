@@ -1,4 +1,4 @@
-// go\cryptograph\ecdsa\ex3_verify\ecdsa_verify.go
+// examples/cryptograph/ecdsa/ex3_verify/ecdsa_verify.go
 package main
 
 import (

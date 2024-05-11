@@ -19,7 +19,7 @@ type didDocumentInterface interface {
 	consume(str string) DIDDocument
 }
 
-// DID Document
+// DIDDocument DID Document
 // Decentralized Identifiers (DIDs) v1.0 https://www.w3.org/TR/did-core/
 // Simple Example: https://www.w3.org/TR/did-core/#a-simple-example
 type DIDDocument struct {
@@ -83,7 +83,7 @@ func NewDIDDocumentForString(docStr string) (didDoc *DIDDocument, err error) {
 // methods define
 ////////////////////////////////////////////////
 
-// https://www.w3.org/TR/did-core/#production-and-consumption
+// Produce https://www.w3.org/TR/did-core/#production-and-consumption
 func (doc *DIDDocument) Produce() string {
 	// object -> string
 	str, err := json.Marshal(doc)
@@ -94,7 +94,7 @@ func (doc *DIDDocument) Produce() string {
 	return string(str)
 }
 
-// Not use
+// Consume Not use
 func (doc *DIDDocument) Consume(str string) {
 	// string -> object
 	err := json.Unmarshal([]byte(str), doc)

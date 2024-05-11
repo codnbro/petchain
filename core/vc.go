@@ -9,7 +9,7 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-// https://www.w3.org/TR/vc-data-model
+// VC https://www.w3.org/TR/vc-data-model
 // https://www.w3.org/TR/vc-data-model/#json-web-token
 type VC struct {
 	// Mendatory
@@ -32,7 +32,7 @@ type Proof struct {
 	Jws                string `json:"jws,omitempty"`
 }
 
-// JWT를 위한 claim
+// JwtClaims JWT를 위한 claim
 type JwtClaims struct {
 	jwt.StandardClaims
 
@@ -60,7 +60,7 @@ type VCInterface interface {
 	VerifyJwt() (bool, error)
 }
 
-// VC를 JTW로 생성하고 string으로 반환한다.
+// GenerateJWT VC를 JTW로 생성하고 string으로 반환한다.
 // JTW의 경우 JWS로 증명되기에 Proofs를 빼고, JWT와 중복되는 properties를 제거한다.
 func (vc *VC) GenerateJWT(verificationId string, pvKey *ecdsa.PrivateKey) (string, error) {
 	aud := ""

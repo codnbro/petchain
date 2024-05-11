@@ -1,10 +1,10 @@
-// go\cryptograph\ecdsa\main.go
+// examples/cryptograph/ecdsa/main.go
 package main
 
 import (
 	"crypto/sha256" // SHA-256 해시 함수를 사용하기 위한 패키지
 	"fmt"           // 표준 입출력을 위한 패키지
-	"go/core"       // ECDSA 관련 기능을 담은 사용자 정의 패키지
+	"petchain/core" // ECDSA 관련 기능을 담은 사용자 정의 패키지
 )
 
 func main() {
@@ -72,3 +72,32 @@ func main() {
 		fmt.Printf("Signature does not verify\n")
 	}
 }
+
+/*
+### Start Main() ###
+########## Key pair ##########
+===== Private Key =====
+Private Key: 40476e71364abf879c74db29e4ccae6591d19f005cfb81d1205f55e560f8391b
+===== Public Key(X, Y) =====
+X=77630462281671674068344944796292394392909475495939538351801756480451709277490 Y=14515582290040653137612206093981360160140428241476510052109045341513716066837
+  Hex: X=aba148d9c243a15d364b016be5079724669aaa3bf27188453e811f7c8aec9532 Y=201787471c3b704623e9102632d864613440a2d0ed616c20445eda31aeb3ea15
+
+########## Sign ##########
+===== Message =====
+Msg: Welcome to petchain
+Digest: a57bf424cf62cf68b5e3ab2dc079c4dc4601c370ab690890c2456074f87d92f3
+R: 36924836527336152708517808397388754058450812760064433535927151260435823631962, S: 46787721747355349076604268835117451914787831570388274709715963144922241691453
+
+########## Verification ##########
+Signature verifies
+
+
+########## SignASN1 ##########
+===== Message =====
+Msg: Welcome to petchain
+Digest: a57bf424cf62cf68b5e3ab2dc079c4dc4601c370ab690890c2456074f87d92f3
+Signature: 304402203c6bd53511a5c618d3bb8c09912d9d855ca341d18ec101ff92534605c325a63302201da0ab3b82e7b324d72fa8e7c97a70d2c40625eacfd1e4742ccbd04d7d8e1e6a
+
+########## Verification ASN1 ##########
+SignatureASN1 verifies
+*/

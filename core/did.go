@@ -1,10 +1,9 @@
-// core/did.go
 package core
 
 import (
 	"errors"
-	"example/util"
 	"fmt"
+	"petchain/util"
 )
 
 type DID struct {

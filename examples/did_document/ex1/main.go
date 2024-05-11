@@ -1,10 +1,10 @@
-// go\did_document\ex1\main.go
+// examples/did_document/ex1/main.go
 package main
 
 import (
 	"fmt"
-	"go/core"
 	"log"
+	core "petchain/core"
 )
 
 func main() {
@@ -37,3 +37,9 @@ func main() {
 	fmt.Printf("did document => %+v\n", didDocument)
 
 }
+
+/*
+### Generate DID & DID Document ###
+did => did:petchain:8YMjRTauuE2ojny8Y6gqwXyXwRUxfoKukBaybC7uDFZF
+did document => {"@context":["https://www.w3.org/ns/did/v1"],"id":"did:petchain:8YMjRTauuE2ojny8Y6gqwXyXwRUxfoKukBaybC7uDFZF","verificationMethod":[{"id":"did:petchain:8YMjRTauuE2ojny8Y6gqwXyXwRUxfoKukBaybC7uDFZF#keys-1","type":"EcdsaSecp256k1VerificationKey2019","controller":"did:petchain:8YMjRTauuE2ojny8Y6gqwXyXwRUxfoKukBaybC7uDFZF","PublicKeyMultibase":"zaSq9DsNNvGhYxYyqA9wd2eduEAZ5AXWgJTbTKBFwsUrCkYKFvSEku2mWP8Kw6nrD8pbLjeyPjdi3TBBvsmEx68uALJwd1UCci1JKgyRDxJRAMkPYkTudX5jUXnEM"}]}
+*/

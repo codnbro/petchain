@@ -1,11 +1,11 @@
 package main
 
 import (
-	"example/actors/vdr/issuer"
-	"example/config"
-	"example/protos"
 	"log"
 	"net"
+	"petchain/actors/vdr/issuer"
+	"petchain/config"
+	"petchain/protos"
 
 	"google.golang.org/grpc"
 )

@@ -1,7 +1,6 @@
-// protos/issuer.proto
 syntax = "proto3";
 
-option go_package = "go/protos";
+option go_package = "examples/protos";
 
 package issuer;
 

@@ -1,5 +1,3 @@
-// core/ecdsa.go
-
 package core
 
 import (
@@ -18,10 +16,6 @@ import (
 	"github.com/multiformats/go-multibase"
 )
 
-const (
-	ELLIPTIC_CURVE = "p256"
-)
-
 type ECDSAManager struct {
 	PrivateKey *ecdsa.PrivateKey
 	PublicKey  *ecdsa.PublicKey
@@ -36,7 +30,7 @@ func (s Signature) String() string {
 	return s.R.String() + s.S.String()
 }
 
-// Not use now.
+// ECDSAInterface Not use now.
 type ECDSAInterface interface {
 	Sign(msg string) ([]byte, error)
 	SignToString(msg string) (string, error)
@@ -45,7 +39,7 @@ type ECDSAInterface interface {
 	//Decode() string
 }
 
-// Generate ECDSAManager
+// NewEcdsa Generate ECDSAManager
 func NewEcdsa() (ecdsa *ECDSAManager) {
 	ecdsa = new(ECDSAManager)
 	err := ecdsa.Generate()
@@ -57,12 +51,12 @@ func NewEcdsa() (ecdsa *ECDSAManager) {
 	return
 }
 
-// Genetate ecdsa keys(P256)
+// Generate Genetate ecdsa keys(P256)
 func (e *ECDSAManager) Generate() error {
 	pvKey, err := ecdsa.GenerateKey(elliptic.P256(), rand.Reader) // elliptic.p224, elliptic.P384(), elliptic.P521()
 
 	if err != nil {
-		return errors.New("ECDSA Keypair generation was Fail!")
+		return errors.New("ECDSA Keypair generation was Fail")
 	}
 
 	e.PrivateKey = pvKey
@@ -71,7 +65,7 @@ func (e *ECDSAManager) Generate() error {
 	return nil
 }
 
-// sign
+// Sign sign
 func (e *ECDSAManager) Sign(digest []byte) (*Signature, error) {
 	r := big.NewInt(0)
 	s := big.NewInt(0)
@@ -93,7 +87,7 @@ func (e *ECDSAManager) Sign(digest []byte) (*Signature, error) {
 	return signature, nil
 }
 
-// signASN1
+// SignASN1 signASN1
 func (e *ECDSAManager) SignASN1(digest []byte) ([]byte, error) {
 	signature, err := ecdsa.SignASN1(rand.Reader, e.PrivateKey, digest)
 	if err != nil {
@@ -103,12 +97,10 @@ func (e *ECDSAManager) SignASN1(digest []byte) ([]byte, error) {
 	return signature, nil
 }
 
-// Verify
 func (e *ECDSAManager) Verify(signature *Signature, digest []byte) bool {
 	return ecdsa.Verify(e.PublicKey, digest, signature.R, signature.S)
 }
 
-// VerifyASN1
 func (e *ECDSAManager) VerifyASN1(signature []byte, digest []byte) bool {
 	return ecdsa.VerifyASN1(e.PublicKey, digest, signature)
 }

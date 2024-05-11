@@ -1,9 +1,9 @@
-// go\vp\main.go
+// examples/vp/main.go
 package main
 
 import (
-	core "core"
 	"fmt"
+	core "petchain/core"
 )
 
 func main() {
@@ -97,3 +97,7 @@ func main() {
 	vpToken := vp.GenerateJWT(verificationIdForHolder, holderKeyEcdsa.PrivateKey)
 	fmt.Println("VP Token: ", vpToken)
 }
+
+/*
+API server listening at: 127.0.0.1:58571
+*/

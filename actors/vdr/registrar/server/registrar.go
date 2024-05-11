@@ -2,15 +2,14 @@ package main
 
 import (
 	"context"
-	"example/config"
-	"example/protos"
 	"fmt"
 	"log"
 	"net"
-
-	"google.golang.org/grpc"
+	"petchain/config"
+	"petchain/protos"
 
 	"github.com/syndtr/goleveldb/leveldb"
+	"google.golang.org/grpc"
 )
 
 type registrarServer struct {
@@ -25,7 +24,12 @@ func (server *registrarServer) RegisterDid(ctx context.Context, req *protos.Regi
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	defer func(db *leveldb.DB) {
+		err := db.Close()
+		if err != nil {
+
+		}
+	}(db)
 
 	err = db.Put([]byte(req.Did), []byte(req.DidDocument), nil)
 

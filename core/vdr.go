@@ -3,10 +3,10 @@ package core
 import (
 	"context"
 	"errors"
-	"example/config"
-	"example/protos"
 	"fmt"
 	"log"
+	"petchain/config"
+	"petchain/protos"
 	"time"
 
 	"google.golang.org/grpc"
@@ -18,7 +18,12 @@ func RegisterDid(did string, didDocument string) error {
 		log.Printf("Registrar not connect: %v\n", err)
 		return errors.New(fmt.Sprintf("Registrar not connect: %v", err))
 	}
-	defer conn.Close()
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+
+		}
+	}(conn)
 
 	client := protos.NewRegistrarClient(conn)
 
@@ -28,7 +33,7 @@ func RegisterDid(did string, didDocument string) error {
 	res, err := client.RegisterDid(ctx, &protos.RegistrarRequest{Did: did, DidDocument: didDocument})
 	if err != nil {
 		log.Println("Failed to register DID.")
-		return errors.New("Failed to register DID.")
+		return errors.New("failed to register DID")
 	}
 
 	fmt.Printf("Registrar Response: %s\n", res)
@@ -42,7 +47,12 @@ func ResolveDid(did string) (string, error) {
 		log.Printf("Resolver not connect: %v\n", err)
 		return "", errors.New(fmt.Sprintf("Resolver not connect: %v", err))
 	}
-	defer conn.Close()
+	defer func(conn *grpc.ClientConn) {
+		err := conn.Close()
+		if err != nil {
+
+		}
+	}(conn)
 
 	client := protos.NewResolverClient(conn)
 

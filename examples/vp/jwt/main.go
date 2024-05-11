@@ -1,9 +1,9 @@
-// go\vp\jwt\main.go
+// examples/vp/jwt/main.go
 package main
 
 import (
-	"example/core"
 	"fmt"
+	core "petchain/core"
 )
 
 func main() {

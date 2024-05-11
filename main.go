@@ -1,4 +1,5 @@
-// go\main.go
+// C:\Github\petchain\main.go
+
 package main
 
 import "fmt"

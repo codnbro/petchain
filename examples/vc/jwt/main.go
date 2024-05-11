@@ -1,10 +1,10 @@
-// go\vc\jwt\main.go
+// examples/vc/jwt/main.go
 package main
 
 import (
 	"fmt"
-	core "go/core"
 	"os"
+	core "petchain/core"
 )
 
 // Issuer에 의한 VC 발행 예시.
@@ -76,3 +76,7 @@ func main() {
 	}
 
 }
+
+/*
+API server listening at: 127.0.0.1:55489
+*/

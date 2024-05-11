@@ -19,7 +19,7 @@ func init() {
 	SystemConfig = loadConfigration(configFileName)
 }
 
-// JSON struct
+// Configuration JSON struct
 type Configuration struct {
 	IssuerAddr           string `json:"issuer_addr"`
 	VerifierAddr         string `json:"verifier_addr"`

@@ -1,4 +1,4 @@
-// util/hash.go
+// C:\Github\petchain\util\hash.go
 package util
 
 import (

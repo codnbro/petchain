@@ -25,7 +25,7 @@ type VP struct {
 	Proof *Proof `json:"proof,omitempty"`
 }
 
-// JWT를 위한 claim
+// JwtClaimsForVP JWT를 위한 claim
 type JwtClaimsForVP struct {
 	jwt.StandardClaims
 
@@ -125,11 +125,11 @@ func (vp *VP) VerifyJwt(tokenString string, pbKey *ecdsa.PublicKey) (bool, error
 
 			}
 		} else {
-			return false, fmt.Errorf("VC is not exist.")
+			return false, fmt.Errorf("VC is not exist")
 		}
 
 	} else {
-		return false, fmt.Errorf("VP is not valid.")
+		return false, fmt.Errorf("VP is not valid")
 	}
 
 	return true, nil

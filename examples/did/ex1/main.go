@@ -1,4 +1,4 @@
-// go\did\ex1\main.go
+// examples/did/ex1/main.go
 package main
 
 import "fmt"
@@ -25,3 +25,7 @@ func main() {
 	// pki 키를 통하여 생성된 DID 출력
 	fmt.Printf("DID: %s\n", did)
 }
+
+/*
+DID: did:petchain:abcd1234
+*/

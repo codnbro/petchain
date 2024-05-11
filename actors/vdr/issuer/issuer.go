@@ -3,10 +3,10 @@ package issuer
 import (
 	"context"
 	"errors"
-	"example/core"
-	"example/protos"
 	"fmt"
 	"log"
+	"petchain/core"
+	"petchain/protos"
 )
 
 type Server struct {
@@ -86,7 +86,7 @@ func (issuer *Issuer) GenerateSampleVC() (string, error) {
 	)
 
 	if err != nil {
-		return "", errors.New("Failed creation VC.")
+		return "", errors.New("failed creation VC")
 	}
 
 	// VC에 Issuer의 private key로 서명한다.(JWT 사용)

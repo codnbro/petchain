@@ -1,4 +1,4 @@
-// go\protos\server\proto_server.go
+// examples/protos/server/proto_server.go
 package main
 
 import (

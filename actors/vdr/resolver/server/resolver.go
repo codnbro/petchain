@@ -2,11 +2,11 @@ package main
 
 import (
 	"context"
-	"example/config"
-	"example/protos"
 	"fmt"
 	"log"
 	"net"
+	"petchain/config"
+	"petchain/protos"
 
 	"github.com/syndtr/goleveldb/leveldb"
 	"google.golang.org/grpc"
@@ -27,7 +27,12 @@ func (server *resolverServer) ResolveDid(ctx context.Context, req *protos.Resolv
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	defer func(db *leveldb.DB) {
+		err := db.Close()
+		if err != nil {
+
+		}
+	}(db)
 
 	data, err := db.Get([]byte(req.Did), nil)
 	didDocument := byte2string(data)
